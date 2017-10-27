@@ -1,7 +1,6 @@
 package hub.herb;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
 
         this._stuID = (EditText)findViewById(R.id.et_stuNumber);
         this._pwd = (EditText)findViewById(R.id.et_pwd);
-
     }
 
     // 회원 가입 버튼을 눌렀을 경우, 회원가입 액티비티로 이동동
@@ -27,9 +25,18 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent( getApplicationContext(), JoinActivity.class );
         startActivity( intent );
     }
-    // 로그인 버튼을 눌렀을 경우
+
+    // 로그인 버튼을 눌렀을 경우, 로그인이 완료되면 날짜를 보여주는 액티비티로 이동
     public void login(View v){
-        final String id = this._stuID.getText().toString();
-        final String pw = this._pwd.getText().toString();
+        //final String id = this._stuID.getText().toString();
+        //final String pw = this._pwd.getText().toString();
+        Intent intent = new Intent( getApplicationContext(), CalendarActivity.class );
+        startActivity( intent );
     }
+
+    // 테스트용으로 바로 reserve로 넘어가도록,추후에 삭제
+    /*public void test(View v){
+        Intent intent = new Intent( getApplicationContext(), ReservActivity.class );
+        startActivity( intent );
+    }*/
 }
