@@ -12,9 +12,8 @@ import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
 
-    final static private String URL = "http://35.194.181.98/herb/join.php"; //DB
+    final static private String URL = "http://35.194.181.98/herb/join.php";
     private Map<String, String> parameters;
-
 
     public RegisterRequest( int userStudentNumber, String userPassword, String userName , Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
