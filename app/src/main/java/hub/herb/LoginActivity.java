@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -36,16 +37,26 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View v){
         String stuNum = this._stuID.getText().toString();
         String pwd = this._pwd.getText().toString();
-        final int stn = Integer.parseInt(stuNum);
+        if( stuNum.getBytes().length > 0 && pwd.getBytes().length > 0 ){
+            int stn = Integer.parseInt(stuNum);
+            loginChk2DB(stn, pwd);
+        }else{
+            Toast.makeText(this,"학번과 비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
+    private void loginChk2DB(int stn, String pwd){
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
-                    if(success){
+                    String name = jsonResponse.getString("name");
+                    String stn = jsonResponse.getString("stdID");
+                    if( success){
                         Intent intent = new Intent(getApplicationContext(), CalendarActivity.class );
+                        intent.putExtra("name", name);
                         intent.putExtra("stuNum", stn);
                         startActivity(intent);
                     }
@@ -65,8 +76,5 @@ public class LoginActivity extends AppCompatActivity {
         LoginRequest loginRequest = new LoginRequest( stn, pwd, responseListener );
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         queue.add(loginRequest);
-
-        //Intent intent = new Intent( getApplicationContext(), CalendarActivity.class );
-        //startActivity( intent );
     }
 }
