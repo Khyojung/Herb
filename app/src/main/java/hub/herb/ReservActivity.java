@@ -23,7 +23,7 @@ import java.net.URLConnection;
     2017-10-24 심예인
  */
 public class ReservActivity extends AppCompatActivity {
-   // String LINK = "http://35.194.181.98/herb/getReservation.php";
+    String LINK = "http://35.194.181.98/herb/getReservation.php";
     String JsonResult;
     TableLayout timetable;
 
@@ -40,7 +40,7 @@ public class ReservActivity extends AppCompatActivity {
         //c2s.execute();
     }
 
-    /*class Connect2Server extends AsyncTask<String, Void, String> {
+    class Connect2Server extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
             try {
@@ -75,8 +75,8 @@ public class ReservActivity extends AppCompatActivity {
                 //Log.d("debuggg", s.toString());
             }
         }
-    }*/
-   /* private void CreateTable(String s){
+    }
+    private void CreateTable(String s){
         for( int i = 9 ; i < 24 ; i++ ){
             TableRow tableRow = new TableRow(this);
             // 시간 세팅
@@ -94,7 +94,7 @@ public class ReservActivity extends AppCompatActivity {
             timetable.addView(tableRow, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
 
-    }*/
+    }
     /*private void createTableRowColumn(TableLayout tableLayout,TableRow tr){
         for( int i = 0 ; i < 5 ; i++) {
             TextView tv = new TextView(this);
