@@ -4,37 +4,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
     tools:context="hub.herb.LoginActivity">
-
-    <EditText
-        android:id="@+id/et_stuNumber"
+    <TextView
+        android:gravity="center"
+        android:id="@+id/et_join"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="학번"
-        android:inputType="number" />
+        android:textSize="30dp"
+        android:text="USER LOGIN"
+        android:layout_marginBottom="20dp"/>
 
-    <EditText
-        android:id="@+id/et_loginPwd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="비밀번호"
-        android:inputType="textPassword" />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/keyhole"
+        android:layout_marginBottom="20dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+ >
+            <EditText
+                android:id="@+id/et_stuNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="학번"
+                android:inputType="number" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="login"
-        android:text="로그인" />
+            <EditText
+                android:id="@+id/passwwordText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:layout_marginBottom="20dp"/>
 
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="login"
+            android:text="LOGIN"
+            android:textSize="20dp"
+            android:background="@drawable/uti"
+            />
+        </LinearLayout>
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="register"
-        android:text="회원가입" />
+        android:textSize="15dp"
+        android:text="회원가입"
+
+        android:background="#00ff0000"
+        />
 <!--
     <Button
         android:id="@+id/btn_test"

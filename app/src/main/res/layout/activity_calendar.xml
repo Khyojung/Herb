@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context="hub.herb.CalendarActivity">
+
+    android:background="#ffffff"
+
+    android:orientation="vertical">
+
+
+    <TextView
+
+        android:id="@+id/tv_date"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="50dp"
+
+        android:background="#21a4ff"
+
+        android:gravity="center_vertical"
+
+        android:paddingLeft="10dp"
+
+        android:textColor="#ffffaa"
+
+        android:textSize="20sp" />
+
+
+    <GridView
+
+        android:id="@+id/calendar_gridview"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+
+        android:layout_marginTop="10dp"
+
+        android:layout_weight="1"
+
+        android:listSelector="#faaaaa"
+
+        android:numColumns="7"
+
+        >
+
+    </GridView>
 
     <Button
         android:id="@+id/btn_test2"
@@ -12,4 +57,9 @@
         android:onClick="test2"
         android:text="예약" />
 
+
 </LinearLayout>
+
+
+
+

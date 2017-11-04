@@ -4,46 +4,119 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hub.herb.JoinActivity">
+    android:layout_margin="40dp"
+    tools:context="hub.herb.JoinActivity"
+    android:weightSum="1">
 
     <!-- 학번이 id 역할 -->
 
-    <EditText
-        android:id="@+id/et_name"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/herb_logo"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"/>
+<!--
+    <TextView
+        android:gravity="center"
+        android:id="@+id/et_join"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="이름"
-        android:inputType="textPersonName" />
+        android:textSize="30dp"
+        android:text="회원가입 정보 입력"
 
-    <EditText
-        android:id="@+id/et_stuNum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="학번"
-        android:inputType="number" />
+        android:layout_marginBottom="40dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></LinearLayout>
+        -->
 
-    <EditText
-        android:id="@+id/et_pwd"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="비밀번호"
-        android:inputType="textPersonName" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_chk_pwd"
+        <EditText
+            android:padding="15dp"
+            android:id="@+id/et_stuNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:background="@null"
+            android:hint="학번"/>
+        <View
+            android:id="@+id/UnderLine"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/et_stuNum"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="#dbebc6" />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="비밀번호 확인"
-       android:inputType="textPersonName" />
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_marginBottom="-5dp"
+            android:layout_marginTop="30dp"
+            android:padding="15dp"
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="비밀번호"
+            android:inputType="textPersonName"
+            android:background="@null"/>
+
+        <View
+            android:id="@+id/UnderLine_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/et_pwd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="#dbebc6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:padding="15dp"
+            android:id="@+id/et_chk_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="비밀번호 확인"
+            android:inputType="textPersonName"
+            android:background="@null"/>
+
+        <View
+            android:id="@+id/UnderLine_chk"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/et_chk_pwd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="#dbebc6" />
+    </LinearLayout>
+
 
     <Button
+        android:layout_gravity="center"
         android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/uti"
         android:onClick="registerComplete"
         android:text="회원가입" />
 </LinearLayout>
