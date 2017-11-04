@@ -25,6 +25,8 @@ package hub.herb;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +50,8 @@ public class CalendarActivity extends Activity {
      * 연/월 텍스트뷰
      */
 
-    private TextView tvDate;
+    private TextView tvYear;
+    private TextView tvMonth;
 
     /**
      * 그리드뷰 어댑터
@@ -88,10 +91,21 @@ public class CalendarActivity extends Activity {
         setContentView(R.layout.activity_calendar);
 
 
-        tvDate = (TextView) findViewById(R.id.tv_date);
+        tvMonth = (TextView) findViewById(R.id.month);
+        tvYear = (TextView)findViewById(R.id.year);
 
         gridView = (GridView) findViewById(R.id.calendar_gridview);
 
+
+
+        Typeface face = Typeface.createFromAsset(getAssets(),"나눔바른펜+ttf.ttf");
+        TextView resButton = (TextView)findViewById(R.id.btn_test2);
+    //  TextView text = (TextView)findViewById(R.id.tv_item_gridview);
+
+        resButton.setTypeface(face);
+        tvMonth.setTypeface(face);
+        tvYear.setTypeface(face);
+    //   text.setTypeface(face);
 
         // 오늘에 날짜를 세팅 해준다.
 
@@ -110,26 +124,28 @@ public class CalendarActivity extends Activity {
 
         //현재 날짜 텍스트뷰에 뿌려줌
 
-        tvDate.setText(curYearFormat.format(date) + "/" + curMonthFormat.format(date));
+        tvYear.setText(curYearFormat.format(date) );
+        tvMonth.setText(curMonthFormat.format(date));
+      //  tvDate.setText(curYearFormat.format(date) + "/" + curMonthFormat.format(date));
 
 
         //gridview 요일 표시
 
         dayList = new ArrayList<String>();
 
-        dayList.add("일");
+        dayList.add("SUM");
 
-        dayList.add("월");
+        dayList.add("MON");
 
-        dayList.add("화");
+        dayList.add("TUE");
 
-        dayList.add("수");
+        dayList.add("WED");
 
-        dayList.add("목");
+        dayList.add("THU");
 
-        dayList.add("금");
+        dayList.add("FRI");
 
-        dayList.add("토");
+        dayList.add("SAT");
 
 
         mCal = Calendar.getInstance();
@@ -158,6 +174,11 @@ public class CalendarActivity extends Activity {
 
 
     }
+    public void test2(View view){
+        Intent intent = new Intent(this, ReservActivity.class);
+        startActivity(intent);
+    }
+
 
 
     /**
@@ -265,6 +286,9 @@ public class CalendarActivity extends Activity {
 
             holder.tvItemGridView.setText("" + getItem(position));
 
+            Typeface face = Typeface.createFromAsset(getAssets(),"나눔바른펜+ttf.ttf");
+            holder.tvItemGridView.setTypeface(face);
+
 
             //해당 날짜 텍스트 컬러,배경 변경
 
@@ -279,6 +303,7 @@ public class CalendarActivity extends Activity {
             if (sToday.equals(getItem(position))) { //오늘 day 텍스트 컬러 변경
 
                 holder.tvItemGridView.setTextColor(getResources().getColor(R.color.little));
+                holder.tvItemGridView.setBackground(getDrawable(R.drawable.today_back));
 
             }
 
